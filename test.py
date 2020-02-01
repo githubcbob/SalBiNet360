@@ -20,7 +20,7 @@ parser.add_argument('--size', type=int, default=352, help='testing size')
 parser.add_argument('--gpu', type=int, default=0, help='which GPU to run')
 parser.add_argument('--type', type=str, default='global', choices=['global', 'local'], help='global or local')
 parser.add_argument('--data', type=str, default='', help='path to testing data')
-parser.add_argument('--pth', type=str, default='./pretrained/SalBiNet.pth', help='path to pretrained model')
+parser.add_argument('--pth', type=str, default='./pretrained/SalBiNet360.pth', help='path to pretrained model')
 parser.add_argument('--save_path', type=str, default='', help='path to save files')
 opt = parser.parse_args()
 
