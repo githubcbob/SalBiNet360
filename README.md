@@ -1,4 +1,4 @@
-## SalBiNet360: Saliency Prediction on 360° Images with Local-Global Bifurcated Deep Network 
+## SalBiNet360: Saliency Prediction on 360° Images with Local-Global Bifurcated Deep Network （Submission in IEEE VR2020）
 
 ### This is a PyTorch implementation.
 
@@ -25,13 +25,13 @@ cd SalBiNet/
 
 Download the following datasets and unzip them into `data/global` folder.
 
-* 
+* Salient360!  ( https://www.interdigital.com/data_sets/salient-360-dataset )
 
 ### 3. Download the pre-trained model
 
 Download the following [pre-trained models](https://) into `pretrained` folder.
 
-### 4. Preprocess the dataset
+### 4. Preprocess the testing data
 
 1. Set the `infolder` path in `preprocessing.m` correctly.
 
@@ -56,4 +56,14 @@ to get the fused saliency maps:
 matlab -nodesktop -nosplash -logfile -r post_processing
 ```
 
+### 6. Preprocess the training data
 
+'''shell
+matlab -nodesktop -nosplash -r preprocessing_trainingdata.m
+'''
+
+### 7. Train
+
+'''shell
+python train.py
+...

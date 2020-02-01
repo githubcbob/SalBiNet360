@@ -1,3 +1,11 @@
+
+
+""" 
+   Testing code for the paper "SalBiNet360: Saliency Prediction on 360 images with Local-Global Bifurcated Deep Network"
+   which is submitted in IEEE VR2020
+"""  
+
+
 import torch
 import torch.nn.functional as F
 import numpy as np

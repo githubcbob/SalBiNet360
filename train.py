@@ -1,3 +1,10 @@
+
+
+""" 
+   Training code for the paper "SalBiNet360: Saliency Prediction on 360 images with Local-Global Bifurcated Deep Network"
+   which is submitted in IEEE VR2020
+"""   
+
 import torch
 import torch.nn.functional as F
 from torch.autograd import Variable
@@ -75,7 +82,7 @@ model.cuda()
 
 print('====> loading pre-trained model checkpoint')
 model_dict = model.state_dict()
-pretrained_dict = torch.load('/home/lab-chen.dongwen/saliency/mine/mymodel2_2d_image/models/CPD_VGG/repetition_contextual_encoder-decoder_network_for_visual_saliency_prediction.pth') #need to change!!!!!!!!!!!!!!!!!!!!!!!!!
+pretrained_dict = torch.load('./pre-trained_on_SALICON.pth') #need to change!!!!!!!!!!!!!!!!!!!!!!!!!
 
 pretrained_dict = {k: v for k,v in pretrained_dict.items() if k in model_dict}
 model_dict.update(pretrained_dict)
@@ -143,7 +150,7 @@ def train(train_loader, model, optimizer, epoch, trainsize):
     if not os.path.exists(save_path):
         os.makedirs(save_path)
     if (epoch+1) % 5 == 0:
-        torch.save(model.state_dict(), save_path + 'repetition_contextual_encoder-decoder_network_for_visual_saliency_prediction.pth')  ## need to change!!!!!!!!!!!!!!!!!!!!!!!
+        torch.save(model.state_dict(), save_path + 'fine-tune.pth')  ## need to change!!!!!!!!!!!!!!!!!!!!!!!
 
 def val(val_loader, model, epoch, trainsize):
     model.eval()
@@ -181,7 +188,7 @@ def val(val_loader, model, epoch, trainsize):
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
-    validation_sample = cv2.imread('/157Dataset/data-chen.dongwen/icme_2017/suitable_salgan360_m/MCP/MCP_P1/1_1_im360_5.jpg')     #need to change!!!!!!!!!!!!!!!!!!!!!!!
+    validation_sample = cv2.imread('path to validation image')     #need to change!!!!!!!!!!!!!!!!!!!!!!!
     validation_sample = cv2.resize(validation_sample, (352,352), interpolation=cv2.INTER_AREA)
     validation_sample = transform(validation_sample).unsqueeze(0)
     validation_sample = validation_sample.cuda()
