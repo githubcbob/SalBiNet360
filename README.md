@@ -15,10 +15,12 @@
 
 ## Usage
 
+Modify the pathes of pre-traind model and datasets. 
+
 ### 1. Enter the repository
 
 ```shell
-cd SalBiNet/
+cd SalBiNet360/
 ```
 
 ### 2. Download the dataset
@@ -29,13 +31,13 @@ Download the following datasets and unzip them into `data/global` folder.
 
 ### 3. Download the pre-trained model
 
-Download the following [pre-trained models](https://) into `pretrained` folder.
+Download the following [pre-trained models](https://pan.baidu.com/s/1IUr0UD-ExAOGvpciJXM0Hw) into `pretrained` folder.
 
 ### 4. Preprocess the testing data
 
 1. Set the `infolder` path in `preprocessing.m` correctly.
 
-2. Run the matlab script for generating local patches.
+2. Run the matlab script for generating rectilinear images.
 ```shell
 matlab -nodesktop -nosplash -r preprocessing
 ```
