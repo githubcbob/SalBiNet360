@@ -58,12 +58,12 @@ matlab -nodesktop -nosplash -logfile -r post_processing
 
 ### 6. Preprocess the training data
 
-'''shell
+```shell
 matlab -nodesktop -nosplash -r preprocessing_trainingdata.m
-'''
+```
 
 ### 7. Train
 
-'''shell
+```shell
 python train.py
-...
+```
